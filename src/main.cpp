@@ -20,19 +20,6 @@ int main()
         return "Hello Crow!";
     });
 
-    // Protected route - requires bearer token authentication
-    CROW_ROUTE(app, "/protected")
-    .CROW_MIDDLEWARES(app, auth::BearerTokenAuth)
-    ([] {
-        // If we reach here, the token was validated successfully
-        // The token is stored in the middleware context
-        crow::response res;
-        res.set_header("Content-Type", "application/json");
-        res.body = R"({"message": "Access granted", "status": "authenticated"})";
-        return res;
-    });
-
-    // Register other routes (these won't have auth middleware unless explicitly added)
     ping::RegisterRoutes(app);
     version::RegisterRoutes(app);
 
