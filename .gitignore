@@ -1,0 +1,11 @@
+.vs
+.cache
+
+build*
+bin
+lib
+out
+
+CMakeSettings.json
+vcpkg-configuration.json
+vcpkg_installed
