@@ -1,6 +1,7 @@
 #include "crow.h"
 
 #include "ping/ping.hpp"
+#include "version/version.hpp"
 #include "utils/Utils.hpp"
 #include <cstdio>
 
@@ -16,6 +17,7 @@ int main()
     });
 
     ping::RegisterRoutes(app);
+    version::RegisterRoutes(app);
 
     app.port(PORT).multithreaded().run();
 
